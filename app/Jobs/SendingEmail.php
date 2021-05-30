@@ -36,9 +36,9 @@ class SendingEmail implements ShouldQueue
     public function handle()
     {
         /* Create the object of mailable class and send email */
-        dd($this->test,$this->name,$this->data);
-       $emails = new SendEmail($this->data);
-       /* Set a valid email address */
+        $emails = new SendEmail($this->data);
+        // dd($emails);
+        /* Set a valid email address */
        Mail::to('alisadikinsyahrizal@gmail.com')->send($emails);
     }
 }
