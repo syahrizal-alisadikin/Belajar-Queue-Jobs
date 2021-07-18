@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 Route::get('/contact', [EmailController::class,'index']);
 Route::post('/sendemail/send', [EmailController::class,'send']);
+Route::GET('trasanctions',[EmailController::class,'transactions']);

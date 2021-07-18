@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Mail;
 // use App\Mail\sendingEmail;
 use App\Jobs\SendingEmail;
 use App\Jobs\SendingNotification;
+use App\Models\Kota;
+use App\Models\User;
+use App\Models\Provinsi;
+use App\Models\Transaction;
+use Illuminate\Support\Facades\DB;
 class EmailController extends Controller
 {
     function index()
@@ -46,5 +51,13 @@ class EmailController extends Controller
         //                         $pesan->from(env('infoakadbaiq@gmail.com', 'infoakadbaiq@gmail.com'), 'PT Akadbaiq Indonesia');
         //                     });
         return back()->with('success', 'Thanks for contacting us!');
+    }
+
+    public function transactions()
+    {
+        // $user = Provinsi::with('transaction')->get();
+    
+        $user = Transaction::all();
+        return view('kota',compact('user'));
     }
 }
